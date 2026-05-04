@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carrusel</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            /* centra horizontal */
+            align-items: center;
+            /* centra vertical */
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+
+        .contenedor {
+            text-align: center;
+        }
+
+        img {
+            width: 800px;
+            height: 450px;
+            object-fit: cover;
+            /* evita deformación */
+            max-width: 95%;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h2>Carrusel</h2>
+
+
+        <img id="imagen" src="https://picsum.photos/800/450?1">
+
+        <br>
+
+        <button onclick="anterior()">❮</button>
+        <button onclick="siguiente()">❯</button>
+    </div>
+
+    <script>
+        let index = 1;
+
+        function siguiente() {
+            index++;
+            if (index > 3) index = 1;
+            document.getElementById("imagen").src = "https://picsum.photos/300/200?" + index;
+        }
+
+        function anterior() {
+            index--;
+            if (index < 1) index = 3;
+            document.getElementById("imagen").src = "https://picsum.photos/300/200?" + index;
+        }
+    </script>
+
+</body>
+
+</html>
